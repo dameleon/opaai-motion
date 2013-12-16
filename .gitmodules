@@ -1,0 +1,6 @@
+[submodule "libs/leapjs"]
+	path = libs/leapjs
+	url = git@github.com:leapmotion/leapjs.git
+[submodule "libs/tt.js"]
+	path = libs/tt.js
+	url = git@github.com:dameleon/tt.js.git
