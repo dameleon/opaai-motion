@@ -39,7 +39,7 @@ function main() {
 
     bust = new Bust({
         boundsList: [left, right],
-        imagePath: '/assets/oppai.jpg',
+        imagePath: 'assets/oppai.jpg',
         canvasSelector: '#sanctuary',
         blocks: 6
     });

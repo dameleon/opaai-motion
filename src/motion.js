@@ -8,16 +8,6 @@ var mark = tt.tag('div', true);
 
 mark.addClass('mark');
 
-function anim() {
-    var handList = this.handList;
-
-    for (var i = 0, hand; hand = handList[i]; i++) {
-        hand.render();
-    }
-    requestAnimationFrame(anim);
-}
-
-
 function Hand(data) {
     this.id = data.id;
     this.fingerHash = {};
@@ -160,9 +150,6 @@ Leap.loop(null, function(frame) {
         delete handList[idx];
     }
 });
-
-
-anim();
 
 })((this.self || global), document, Leap, tt, void 0);
 
