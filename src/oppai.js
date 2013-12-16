@@ -700,6 +700,7 @@ ActionHandler.prototype = {
 };
 
 main();
+global.bust = bust;
 
 })((this.self || global), document, tt, void 0);
 
