@@ -137,6 +137,7 @@ Bust.prototype = {
 
         cups[0].update();
         cups[1].update();
+		this.ctx.drawImage(this.image, 0, 0);
         cups[0].draw();
         cups[1].draw();
     },

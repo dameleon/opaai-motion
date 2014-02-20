@@ -14,11 +14,13 @@ function Hand(data) {
     this.update(data);
 }
 
+var flag = true;
+
 Hand.prototype = {
     constructor: Hand,
     update: function(data) {
         this.data = data;
-        this.cup = bust.getCupByCoords(data.palmPosition[2] > 40);
+        this.cup = bust.getCupByCoords(data.palmPosition[0] > 0);
 
         var fingers = data.fingers;
         var fingerHash = this.fingerHash;
@@ -74,24 +76,24 @@ Finger.prototype = {
     },
     getXYZ: function() {
         var data = this.data;
+
         if (! data) {
             return;
         }
         var halfW = global.innerWidth / 2;
         var halfH = global.innerHeight / 2;
-        return [
-            (data.tipPosition[0] * 2.5) + halfW,
-            data.tipPosition[1],
-            data.tipPosition[2] + halfH
-        ];
+        return {
+            x: data.tipPosition[0] * 3 + halfW,
+            y: data.tipPosition[1],
+            z: data.tipPosition[2] * 4.5 + halfH
+		};
     },
     render: function() {
         var pos = this.getXYZ();
-        var mark = this.mark;
 
-        mark.get().style.webkitTransform = "translateX("+pos[0]+"px) translateY("+pos[2]+"px)";
+        this.mark[0].style.webkitTransform = "translateX("+pos.x+"px) translateY("+pos.z+"px)";
 
-        if (pos[1] < 150) {
+        if (pos.y < 150) {
             this.onMassage(pos);
         } else {
             this.offMassage(pos);
@@ -101,14 +103,14 @@ Finger.prototype = {
         var point = this.point;
 
         if (! this.point) {
-            point = this.context.cup.getPointByCoords(pos[0], pos[2]);
+            point = this.context.cup.getPointByCoords(pos.x, pos.z);
 
             if (! point) {
                 return;
             }
             this.point = point;
         }
-        point.move(pos[0], pos[2]);
+        point.move(pos.x, pos.z);
     },
     offMassage: function(pos) {
         var point = this.point;
@@ -116,7 +118,7 @@ Finger.prototype = {
         if (! point) {
             return;
         }
-        point.backIn(pos[0], pos[2]);
+        point.backIn(pos.x, pos.z);
     },
     remove: function() {
         var point = this.point;
