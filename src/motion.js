@@ -143,8 +143,7 @@ Leap.loop(null, function(frame) {
         }
         else {
             handList[id].update(hand);
-            var idx = idx = handKeys.indexOf(id);
-            handKeys.splice(idx,1)
+            handKeys.splice(handKeys.indexOf(id), 1);
         }
     }
     for (var i = 0, idx; idx = handKeys[i]; i++) {

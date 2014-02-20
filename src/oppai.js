@@ -13,7 +13,7 @@ var elasticEaseOut = function(t, b, c, d, a, p) {
 };
 
 var DEBUG = false;
-var POINT_MOVE_DISTANCE = 80;
+var POINT_MOVE_DISTANCE = 60;
 var POINT_WEIGHT_MAP = [
         [0.05],[0.1], [0.2], [0.1], [0.05],
         [0.1], [0.4], [0.5], [0.3], [0.1],
