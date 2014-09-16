@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>opaai-motion</title>
+<style type="text/css">
+html, body, canvas, div {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #444;
+}
+.container {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+.container #sanctuary {
+	position: relative;
+	left: 50%;
+}
+.mark {
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	width: 30px;
+	height: 30px;
+	background: rgba(0,0,0,0.6);
+	border-radius: 15px;
+}
+</style>
+</head>
+<div class="container">
+<canvas id="sanctuary"></canvas>
+</div>
+<script src="src/tt.min.js"></script>
+<script src="src/leap.min.js"></script>
+<script src="src/oppai_debug.js"></script>
+<script src="src/motion.js"></script>
+</body>
+</html>
